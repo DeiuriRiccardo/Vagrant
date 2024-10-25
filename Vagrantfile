@@ -6,7 +6,15 @@ Vagrant.configure("2") do |config|
   BASE_HOST_ONLY_NETWORK = "192.168.56"
   BASE_INT_NETWORK = "10.10.20"
   VMRAM = "1024"
+  PROXY_URL = "http://10.20.0.1:8080"
+  PROXY_ENABLE = false
   
+  if Vagrant.has_plugin?("vagrant-proxyconf") && PROXY_ENABLE
+    config.proxy.http     = PROXY_URL
+    config.proxy.https    = PROXY_URL
+    config.proxy.no_proxy = "localhost,127.0.0.1"
+  end
+
   config.vm.define "web" do |webconfig|
     webconfig.vm.box = BOX_IMAGE
 	webconfig.vm.hostname = "web-m340"
