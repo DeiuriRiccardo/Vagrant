@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   BOX_IMAGE = "ubuntu/jammy64"
   BASE_HOST_ONLY_NETWORK = "192.168.56"
   BASE_INT_NETWORK = "10.10.20"
-  VMRAM = "1024"
+  VMRAM = "2048"
   PROXY_URL = "http://10.20.0.1:8080"
   PROXY_ENABLE = false
   
